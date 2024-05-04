@@ -4,7 +4,7 @@ const cloudinary = process.env.REACT_APP_CLOUDINARY_ID;
 const url = process.env.AXIOS_URL;
 const tok = process.env.REACT_STRIPE_SECRET_KEY;
 export const server = axios.create({
-  baseURL: `https://order-app-server.onrender.com`,
+  baseURL: `https://order-app-server.onrender.com/`,
   responseType: "json",
 });
 
