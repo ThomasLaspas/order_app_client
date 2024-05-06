@@ -15,6 +15,7 @@ export default function Search2({
   settriger,
   setload,
   currentPosts,
+  sidemenu,
 }) {
   const [query, setquery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -196,7 +197,7 @@ export default function Search2({
       </div>
       {currentPosts.length > 0 ? (
         currentPosts.map((rs) => {
-          return (
+          return sidemenu ? null : (
             <Cardrest
               cousines={rs.cousines}
               name={rs.restaurantName}

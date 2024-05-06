@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { server } from "../util/axios";
 import { useParams } from "react-router-dom";
 import Pagination from "../components/pagination";
+import { useOutletContext } from "react-router-dom";
 
 export default function Restresults() {
   const Token = localStorage.getItem("tok");
@@ -16,6 +17,7 @@ export default function Restresults() {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(4);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [sidemenu, setsidemenu] = useOutletContext();
 
   const clear = () => {
     setcousines([]);
@@ -67,16 +69,19 @@ export default function Restresults() {
         </div>
         <div className="grid2">
           <section className="ingrid2">
-            <Search2
-              cousines={cousines}
-              restaurants={restaurants}
-              setrestaurants={setrestaurants}
-              setcousines={setcousines}
-              settriger={settriger}
-              trigerr={trigerr}
-              setload={setload}
-              currentPosts={currentPosts}
-            />
+            {sidemenu ? null : (
+              <Search2
+                cousines={cousines}
+                restaurants={restaurants}
+                setrestaurants={setrestaurants}
+                setcousines={setcousines}
+                settriger={settriger}
+                trigerr={trigerr}
+                setload={setload}
+                currentPosts={currentPosts}
+                sidemenu={sidemenu}
+              />
+            )}
             <br />
             <Pagination
               postsPerPage={postsPerPage}

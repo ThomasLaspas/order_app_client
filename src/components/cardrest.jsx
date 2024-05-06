@@ -1,5 +1,5 @@
 import "../mainpage.css";
-import logo from "../../second rest.jpeg";
+
 import { Link } from "react-router-dom";
 export default function Cardrest({ img, name, time, price, cousines, id }) {
   return (
