@@ -91,7 +91,7 @@ export default function Layout() {
           )}
           {sidemenu &&
             (auth ? (
-              <section className="mobmenu2">
+              <section className="mobmenu2" onClick={() => setsidemenu(false)}>
                 <main>
                   <h2
                     style={{
@@ -137,10 +137,17 @@ export default function Layout() {
                 </main>
               </section>
             ) : (
-              <section className="mobmenu">
+              <section className="mobmenu" onClick={() => setsidemenu(false)}>
                 <main>
                   <CgClose id="close" onClick={() => setsidemenu(false)} />
-                  <Link to="/signin-up">Log In</Link>
+
+                  <Link
+                    to="/signin-up"
+                    id="btn"
+                    onClick={() => setsidemenu(false)}
+                  >
+                    Log In
+                  </Link>
                 </main>
               </section>
             ))}
